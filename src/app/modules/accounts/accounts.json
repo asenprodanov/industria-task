@@ -8,14 +8,6 @@
       "accountCards": 0
     },
     {
-      "accountId": 12142412,
-      "accountName": "Разплащателна сметка 1",
-      "iban": "BG08UNCR70008399429982",
-      "balance": 1500,
-      "accountCurrency": "BGN",
-      "accountCards": 0
-    },
-    {
       "accountId": 23123323,
       "accountName": "Разплащателна сметка с 2 карти",
       "iban": "BG08UNCR70078929122111",

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AccountsService } from '../../accounts.service';
+import { Account } from '../../accounts';
 
 @Component({
   templateUrl: './accounts.component.html',
@@ -10,7 +11,7 @@ import { AccountsService } from '../../accounts.service';
 export class AccountsComponent implements OnInit {
 
   public title = 'Сметки';
-  public accountsData$: Observable<[]>;
+  public accountsData$: Observable<Account[]>;
 
   constructor(private accounts: AccountsService) { }
 

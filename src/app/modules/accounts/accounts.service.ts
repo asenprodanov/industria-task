@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-// import Accounts from './accounts.json';
+import { Account } from './accounts';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class AccountsService {
 
   constructor(private http: HttpClient) { }
 
-  getAccounts(): Observable<any> {
-    return this.http.get(this.accountsUrl);
+  getAccounts(): Observable<Account[]> {
+    return this.http.get<Account[]>(this.accountsUrl);
  }
 
 }

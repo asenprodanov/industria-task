@@ -1,4 +1,4 @@
-@import "variables";
+@import "main";
 
 .accounts-content {
   height: 500px;
@@ -44,7 +44,6 @@
     padding: 0 16px;
     background: linear-gradient(0, #2abbda 0%, #2aaddb 100%);
     h3 {
-      line-height: 12px;
       color: #fff;
     }
   }

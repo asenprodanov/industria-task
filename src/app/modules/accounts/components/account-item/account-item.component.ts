@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { Account } from '../../account';
+
 @Component({
   selector: 'app-account-item',
   templateUrl: './account-item.component.html',
@@ -7,12 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccountItemComponent implements OnInit {
 
-  @Input() accounts: [];
+  @Input() accounts: Account[];
 
   constructor() { }
 
   ngOnInit(): void {
-    console.warn('accounts', this.accounts);
   }
 
 }

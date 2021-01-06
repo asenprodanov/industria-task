@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AccountTransactionsComponent } from './modules/accounts/modules/transactions/components/account-transactions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AccountTransactionsComponent
   ],
   imports: [
     BrowserModule,

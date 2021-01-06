@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AccountTransactionsComponent } from './components/account-transactions/account-transactions.component';
+
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { AccountTransactionsComponent } from './modules/transactions/components/account-transactions.component';
 
 const routes: Routes = [
   {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AccountsService } from '../../accounts.service';
-import { Account } from '../../accounts';
+import { Account } from '../../account';
 
 @Component({
   templateUrl: './accounts.component.html',

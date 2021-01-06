@@ -1,0 +1,31 @@
+<div class="accounts-content">
+  <header class="accounts-header">
+    <h2>{{ title }}</h2>
+  </header>
+  <div class="accounts-list">
+    <!-- TODO account item component -->
+    <a *ngFor="let account of accountsData$ | async"
+      [routerLink]="account.accountId"
+      routerLinkActive="selected"
+      class="account-item">
+      <div class="account-name">
+        <h3>{{ account.accountName }}</h3>
+      </div>
+      <div class="account-info">
+        <div class="account-info-top">
+          <span class="account-iban">{{ account.iban }}</span>
+          <span class="account-currency">{{ account.accountCurrency }} {{ account.balance }}</span>
+        </div>
+        <div class="account-info-bottom">
+          <!-- TODO <div></div> -->
+          <div class="account-cards">
+            <!-- TODO card icon + directive maybe -->
+            <span class="account-card-number">{{ account.accountCards }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+

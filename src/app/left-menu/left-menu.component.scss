@@ -1,0 +1,39 @@
+nav {
+  height: 500px;
+  background: linear-gradient(90deg, #465a65 0%, #31444b 100%);
+  .left-menu li {
+    // height: 50px;
+    margin-top: 1px;
+    background: linear-gradient(90deg, #596b75 0%, #485961 100%);
+    &:first-child {
+      margin-top: 0;
+      background: linear-gradient(90deg, #465a65 0%, #31444b 100%);
+    }
+    span {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      height: 50px;
+      padding: 0 20px;
+      color: #fff;
+      &:hover {
+        padding-left: 18px;
+        border-left: solid 2px #7ebeba;
+      }
+    }
+    a {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      height: 50px;
+      padding: 0 20px;
+      &:hover {
+        padding-left: 18px;
+        border-left: solid 2px #7ebeba;
+      }
+    }
+  }
+}
+.left-sub-menu {
+  display: block;
+}

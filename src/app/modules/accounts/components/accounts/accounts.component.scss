@@ -1,0 +1,76 @@
+@import "variables";
+
+.accounts-content {
+  height: 500px;
+  background-color: $general-bg;
+  overflow: hidden;
+}
+.accounts-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 80px;
+  padding: 0 20px;
+  background-color: #7cc3d5;
+  h2 {
+    color: #fff;
+  }
+}
+.accounts-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px 20px;
+}
+.account-item {
+  flex: 0 calc(50% - 15px);
+  height: 150px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  border-radius: 1px;
+  border: solid 1px #dae7ea;
+  background-color: #fff;
+  &.selected,
+  &:hover {
+    .account-name {
+      background: linear-gradient(0, #2ac1dc 0%, #2accdb 100%);
+    }
+  }
+  .account-name {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 50px;
+    padding: 0 16px;
+    background: linear-gradient(0, #2abbda 0%, #2aaddb 100%);
+    h3 {
+      line-height: 12px;
+      color: #fff;
+    }
+  }
+  .account-info {
+    padding: 0 16px;
+    .account-info-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      border-bottom: solid 1px #dae7ea;
+      .account-iban {
+        color: $labels;
+      }
+      .account-currency {
+        color: $general-text;
+      }
+    }
+    .account-info-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      .account-card-number {
+        color: $general-active-element;
+      }
+    }
+  }
+}

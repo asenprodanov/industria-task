@@ -1,0 +1,82 @@
+@import "main";
+
+.transaction-row {
+  // padding-left: 16px;
+  color: $labels;
+  border-top: solid 1px #dae7ea;
+  &:hover,
+  &.selected {
+    .transaction-row-inner {
+      padding-left: 14px;
+      border-left: solid 2px $general-active-element;
+      background-color: #fff;
+    }
+  }
+  .transaction-row-inner {
+    padding-left: 16px;
+  }
+}
+.transaction-field {
+  float: left;
+  height: 49px;
+  padding-top: 16px;
+  &.transaction-date,
+  &.transaction-time,
+  &.transaction-currency {
+    width: 5%;
+  }
+  &.transaction-account-name,
+  &.transaction-receiver-name,
+  &.transaction-payment-description {
+    width: calc(24% - 5px);
+  }
+  &.transaction-ammount {
+    width: 10%;
+    text-align: right;
+  }
+  &.transaction-status {
+    float: right;
+    width: 15px;
+    &.pending {
+      background-color: $warning;
+    }
+    &.inflow {
+      background-color: $success;
+    }
+    &.outflow {
+      background-color: $accent;
+    }
+    span {
+      padding: 0;
+    }
+  }
+  & > span {
+    padding: 0 5px;
+  }
+}
+.transaction-additional-info {
+  clear: both;
+  padding: 0 16px;
+  border-top: solid 1px #dae7ea;
+  .transaction-additional-info-row {
+    border-top: solid 1px #dae7ea;
+    .transaction-field-left,
+    .transaction-field-right {
+      float: left;
+      width: 50%;
+      height: 50px;
+      padding-top: 16px;
+      & > span {
+        padding: 0 5px;
+      }
+    }
+    .transaction-field-right {
+      text-align: right;
+    }
+  }
+  & > div {
+    &:first-child {
+      border: none;
+    }
+  }
+}

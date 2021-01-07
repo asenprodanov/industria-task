@@ -1,0 +1,59 @@
+<div
+  (click)="toggle.emit(true)"
+  [ngClass]="{'selected': !isHidden}"
+  class="transaction-row">
+  <div class="transaction-row-inner clearfix">
+    <div class="transaction-field transaction-date">
+      <span>{{ transaction.date }}</span>
+    </div>
+    <div class="transaction-field transaction-time">
+      <span>{{ transaction.time }}</span>
+    </div>
+    <div class="transaction-field transaction-account-name">
+      <span>{{ transaction.accountName }}</span>
+    </div>
+    <div class="transaction-field transaction-receiver-name">
+      <span>{{ transaction.receiverName }}</span>
+    </div>
+    <div class="transaction-field transaction-payment-description">
+      <span>{{ transaction.paymentDescription }}</span>
+    </div>
+    <div class="transaction-field transaction-currency">
+      <span>{{ transaction.currency }}</span>
+    </div>
+    <div class="transaction-field transaction-ammount">
+      <span>{{ transaction.ammount }}</span>
+    </div>
+    <div [ngClass]="transaction.transactionStatus" class="transaction-field transaction-status">
+      <!-- TODO icon -->
+      <span></span>
+    </div>
+  </div>
+  <div [hidden]="isHidden" class="transaction-additional-info">
+    <div class="transaction-additional-info-row clearfix">
+      <div class="transaction-field-left">
+        <span>IBAN</span>
+      </div>
+      <div class="transaction-field-right">
+        <span>{{ transaction.iban }}</span>
+      </div>
+    </div>
+    <div class="transaction-additional-info-row clearfix">
+      <div class="transaction-field-left">
+        <span>Дата и час на осчетоводяване</span>
+      </div>
+      <div class="transaction-field-right">
+        <span>{{ transaction.dateAndTime }}</span>
+      </div>
+    </div>
+    <div class="transaction-additional-info-row clearfix">
+      <div class="transaction-field-left">
+        <span>Още пояснения</span>
+      </div>
+      <div class="transaction-field-right">
+        <span>{{ transaction.additionalDescription }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

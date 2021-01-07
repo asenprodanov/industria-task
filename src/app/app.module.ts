@@ -8,14 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AccountTransactionsComponent } from './modules/accounts/modules/transactions/components/account-transactions.component';
+import { TransactionsModule } from './modules/accounts/modules/transactions/transactions.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
-    PageNotFoundComponent,
-    AccountTransactionsComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +22,7 @@ import { AccountTransactionsComponent } from './modules/accounts/modules/transac
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryAccountsDataService, { dataEncapsulation: false }
     ),
+    TransactionsModule,
     AppRoutingModule
   ],
   providers: [],

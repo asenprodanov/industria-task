@@ -1,8 +1,6 @@
 @import "main";
 
 .accounts-content {
-  height: 500px;
-  background-color: $general-bg;
   overflow: hidden;
 }
 .accounts-header {
@@ -18,5 +16,5 @@
   }
 }
 .accounts-list {
-  padding: 30px 20px;
+  padding: 30px 20px 0;
 }

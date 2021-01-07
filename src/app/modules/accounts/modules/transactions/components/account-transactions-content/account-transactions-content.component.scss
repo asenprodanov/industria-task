@@ -1,0 +1,58 @@
+@import "main";
+
+.transactions-content {
+  padding: 0 20px 30px;
+  .transactions-top {
+    height: 70px;
+    padding-left: 16px;
+    background-color: #f2f7fa;
+    color: $labels;
+    .transaction-field {
+      padding-top: 29px;
+      & > span {
+        font-size: 14px;
+      }
+    }
+  }
+  .transactions-list {
+    background-color: #f2f7fa;
+  }
+}
+.transaction-field {
+  float: left;
+  height: 49px;
+  padding-top: 16px;
+  &.transaction-date,
+  &.transaction-time,
+  &.transaction-currency {
+    width: 5%;
+  }
+  &.transaction-account-name,
+  &.transaction-receiver-name,
+  &.transaction-payment-description {
+    width: calc(24% - 5px);
+  }
+  &.transaction-ammount {
+    width: 10%;
+    text-align: right;
+  }
+  &.transaction-status {
+    float: right;
+    width: 15px;
+    &.pending {
+      background-color: $warning;
+    }
+    &.inflow {
+      background-color: $success;
+    }
+    &.outflow {
+      background-color: $accent;
+    }
+    span {
+      padding: 0;
+    }
+  }
+  & > span {
+    padding: 0 5px;
+  }
+}

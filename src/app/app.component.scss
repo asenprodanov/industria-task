@@ -1,16 +1,22 @@
+@import "main";
+
 header {
   height: 63px;
   padding: 20px 20px 0 20px;
 }
 .container {
-  overflow: hidden;
+  height: calc(100% - 63px);
+  & > div {
+    height: 100%;
+  }
 }
 .left-content {
   float: left;
   width: 20%;
-  max-width: 273px;
+  background: linear-gradient(90deg, #465a65 0%, #31444b 100%);
 }
 .main-content {
   float: left;
   width: 80%;
+  background-color: $general-bg;
 }

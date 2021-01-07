@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountItemComponent } from './components/account-item/account-item.component';
+import { TransactionsModule } from './modules/transactions/transactions.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { AccountItemComponent } from './components/account-item/account-item.com
   ],
   imports: [
     CommonModule,
+    TransactionsModule,
     AccountsRoutingModule
   ]
 })

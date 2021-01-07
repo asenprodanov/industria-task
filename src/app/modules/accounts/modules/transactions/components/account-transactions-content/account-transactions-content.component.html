@@ -1,0 +1,35 @@
+<div *ngIf="transactionsData$ | async as transactions" class="transactions-content">
+  <div class="transactions-top">
+    <div class="transaction-field transaction-date">
+      <!-- TODO icons -->
+      <span>Дата</span>
+    </div>
+    <div class="transaction-field transaction-time">
+      <span>Час</span>
+    </div>
+    <div class="transaction-field transaction-account-name">
+      <span>Сметка</span>
+    </div>
+    <div class="transaction-field transaction-receiver-name">
+      <span>Получател</span>
+    </div>
+    <div class="transaction-field transaction-payment-description">
+      <span>Основание</span>
+    </div>
+    <div class="transaction-field transaction-currency">
+      <span>Валута</span>
+    </div>
+    <div class="transaction-field transaction-ammount">
+      <span>Сума</span>
+    </div>
+    <div class="transaction-field transaction-status">
+      <span></span>
+    </div>
+  </div>
+  <div class="transactions-list">
+    <app-account-transaction
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+      [isHidden]="isHidden"></app-account-transaction>
+  </div>
+</div>

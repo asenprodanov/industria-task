@@ -13,8 +13,8 @@ export interface Transaction {
   accountId: number;
 }
 
-enum Status {
-  Pending = 'Pending',
-  Outflow = 'Outflow',
-  Inflow = 'Inflow'
+export enum Status {
+  pending = 'Pending',
+  outflow = 'Outflow',
+  inflow = 'Inflow'
 }

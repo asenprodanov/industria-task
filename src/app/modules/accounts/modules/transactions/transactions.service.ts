@@ -30,9 +30,9 @@ export class TransactionsService {
       .pipe(
         map((transactions: Transaction[]) => transactions.filter(t => t.accountId === id)),
         catchError(error => {
-          console.log('Throwing error');
+          console.log('Throwing error!');
           return throwError(error);
-      })
+        })
       );
   }
 

@@ -1,39 +1,83 @@
+@import "main";
+
 nav {
-  height: 500px;
-  background: linear-gradient(90deg, #465a65 0%, #31444b 100%);
   .left-menu li {
-    // height: 50px;
     margin-top: 1px;
     background: linear-gradient(90deg, #596b75 0%, #485961 100%);
     &:first-child {
       margin-top: 0;
       background: linear-gradient(90deg, #465a65 0%, #31444b 100%);
     }
-    span {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      height: 50px;
-      padding: 0 20px;
-      color: #fff;
-      &:hover {
-        padding-left: 18px;
-        border-left: solid 2px #7ebeba;
-      }
-    }
+    span,
     a {
       display: flex;
       justify-content: left;
       align-items: center;
       height: 50px;
       padding: 0 20px;
-      &:hover {
+      text-decoration: none;
+      color: #fff;
+      &:hover,
+      &.selected {
         padding-left: 18px;
-        border-left: solid 2px #7ebeba;
+        border-left: solid 2px $general-active-element;
+      }
+      &.selected {
+        & + ul {
+          display: block;
+        }
+      }
+      .mdi {
+        margin-right: 5px;
+      }
+    }
+    &.pay {
+      span {
+        position: relative;
+        .pay-button {
+          position: absolute;
+          right: 10px;
+          width: 35px;
+          height: 35px;
+          padding: 0;
+          cursor: pointer;
+          background-color: $general-active-element;
+          border-radius: 2px;
+          &:hover {
+            padding: 0;
+            .mdi {
+              position: relative;
+              left: -1px;
+            }
+          }
+          .mdi {
+            margin: 0 auto;
+          }
+        }
       }
     }
   }
-}
-.left-sub-menu {
-  display: block;
+  .left-sub-menu {
+    display: none;
+    padding: 0 16px;
+    li {
+      background: none;
+      &:first-child {
+        border-top: solid 1px #949494;
+        background: none;
+      }
+      a,
+      span {
+        height: 40px;
+        padding-left: 25px;
+        font-size: 14px;
+        &:hover,
+        &.selected {
+          padding-left: 25px;
+          color: $general-active-element;
+          border-left: none;
+        }
+      }
+    }
+  }
 }

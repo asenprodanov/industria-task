@@ -11,10 +11,10 @@
       <span class="account-currency">{{ account.accountCurrency }} {{ account.balance }}</span>
     </div>
     <div class="account-info-bottom">
-      <span class="mdi mdi-wallet"></span>
+      <i class="mdi mdi-wallet"></i>
       <div [ngClass]="{ 'no-card': !account.accountCards }" class="account-cards">
         <span class="account-card-number">{{ account.accountCards }}</span>
-        <span class="mdi mdi-credit-card-outline"></span>
+        <i class="mdi mdi-credit-card-outline"></i>
       </div>
     </div>
   </div>

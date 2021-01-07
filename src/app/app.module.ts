@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TransactionsModule } from './modules/accounts/modules/transactions/transactions.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

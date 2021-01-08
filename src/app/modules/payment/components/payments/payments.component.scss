@@ -64,4 +64,14 @@
       }
     }
   }
+  footer {
+    clear: both;
+    height: 80px;
+    padding-top: 22px;
+    text-align: center;
+    border-top: solid 1px #dae7ea;
+    .btn {
+      clear: both; // TODO remove
+    }
+  }
 }

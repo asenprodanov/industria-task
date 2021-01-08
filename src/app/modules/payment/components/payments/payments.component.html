@@ -19,4 +19,9 @@
     <app-payment-step-two *ngIf="currentStep === 2"></app-payment-step-two>
     <app-payment-step-three *ngIf="currentStep === 3"></app-payment-step-three>
   </div>
+  <footer>
+    <button
+      (click)="nextStep()"
+      class="btn">Напред</button>
+  </footer>
 </div>

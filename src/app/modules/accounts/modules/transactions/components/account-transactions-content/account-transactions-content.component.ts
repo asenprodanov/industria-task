@@ -14,6 +14,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AccountTransactionsContentComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  // List of transaction component with additional info
   @ViewChildren(AccountTransactionComponent) additionalInfo: QueryList<AccountTransactionComponent>;
   @Input() accountId: number;
   public transactionsData$: Observable<Transaction[]>;
@@ -34,11 +35,11 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
   }
 
   ngAfterViewInit(): void {
+    // Waiting for transaction components to be loaded so we can toggle them
     this.additionalInfoSubscription = this.additionalInfo.changes.subscribe(() => {
       if (this.additionalInfo.toArray().length) {
         this.additionalInfo.toArray().forEach((info: AccountTransactionComponent) => {
           this.infoSubscription = info.toggle.subscribe(() => {
-
             this.showAdditionalInfo(info);
           });
         });
@@ -55,6 +56,7 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
     }
   }
 
+  // Toggle additional info
   private showAdditionalInfo(info: AccountTransactionComponent): void {
     this.additionalInfo.toArray().forEach(i => {
       if (i.isHidden !== info.isHidden ) {

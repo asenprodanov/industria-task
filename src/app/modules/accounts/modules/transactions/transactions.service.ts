@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Transaction } from './transaction';
+
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -35,5 +36,8 @@ export class TransactionsService {
         })
       );
   }
+
+  // createTransaction(data: Transaction): void {
+  // }
 
 }

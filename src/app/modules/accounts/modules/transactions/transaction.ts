@@ -4,17 +4,11 @@ export interface Transaction {
   accountName: string;
   receiverName: string;
   paymentDescription: string;
-  transactionStatus: Status;
+  transactionStatus: string;
   currency: string;
   ammount: number;
   dateAndTime: Date;
   iban: string;
   additionalDescription: string;
   accountId: number;
-}
-
-export enum Status {
-  pending = 'Pending',
-  outflow = 'Outflow',
-  inflow = 'Inflow'
 }

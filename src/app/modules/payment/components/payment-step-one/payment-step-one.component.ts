@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PaymentsService } from '../../payments.service';
-
 interface Template {
   tempalteId: number;
   templateName: string;
@@ -28,18 +26,13 @@ export class PaymentStepOneComponent implements OnInit {
   ];
   public selectedTemplate: Template;
 
-  constructor(public paymentsService: PaymentsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   selectTemplate(template: Template): void {
     this.selectedTemplate = template;
-  }
-
-  nextStep(): void {
-    const currentStep = this.paymentsService.currentStep.value;
-    this.paymentsService.setCurrentStep(currentStep + 1);
   }
 
 }

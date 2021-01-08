@@ -70,6 +70,20 @@
     "accountId": 2
   },
   {
+    "date": "22 сеп",
+    "time": "16:22",
+    "accountName": "Разплащателна сметка 2",
+    "receiverName": "A1",
+    "paymentDescription": "Ново плащане",
+    "transactionStatus": "outflow",
+    "currency": "BGN",
+    "ammount": 11,
+    "dateAndTime": "1 юни 2026, 11:12",
+    "iban": "BG08UNCR70078929122111",
+    "additionalDescription": "Още пояснения",
+    "accountId": 2
+  },
+  {
     "date": "2 май",
     "time": "11:12",
     "accountName": "Разплащателна сметка 2",

@@ -1,0 +1,67 @@
+@import "main";
+
+.payment-step-container {
+  font: 400 16px/20px "PTSansWebRegular", "UnicreditCYRegular", sans-serif;
+  header {
+    text-align: center;
+    h2 {
+      font-size: 28px;
+      color: $labels;
+    }
+    width: 100%;
+    height: 140px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: $general-bg;
+    border-bottom: solid 1px #dae7ea;
+    .steps {
+      margin-top: 16px;
+      .steps-number {
+        display: inline-block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 34px;
+        font-size: 21px;
+        color: #fff;
+        border: solid 3px $general-active-element;
+        border-radius: 50%;
+        background-color: $general-active-element;
+        &.active {
+          color: $success;
+          border: solid 3px $success;
+          background-color: #fff;
+        }
+        &.completed {
+          color: $success;
+          border: solid 3px $success;
+          background-color: $success;
+          .mdi {
+            display: inline-block;
+            color: #fff;
+          }
+        }
+        .mdi {
+          display: none;
+          position: absolute;
+          right: 0;
+          left: 0;
+        }
+      }
+      .steps-separator {
+        display: inline-block;
+        position: relative;
+        top: -4px;
+        width: 34px;
+        height: 4px;
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: $general-active-element;
+        &.completed {
+          background-color: $success;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@import "main";
+
+.payment-step-1-container {
+  width: 860px;
+  position: relative;
+  .payment-step-1-form,
+  .payment-step-1-template {
+    float: left;
+    width: 50%;
+    header {
+      height: 80px;
+      padding-top: 12px;
+      text-align: center;
+      background-color: $general-bg;
+      h3 {
+        font-size: 20px;
+        color: $labels;
+      }
+      .payment-step-1-info {
+        font-size: 12px;
+        color: $labels;
+      }
+    }
+  }
+  .strange-text {
+    position: absolute;
+    top: 18px;
+    right: 48.5%;
+    bottom: auto;
+    left: auto;
+    color: $labels;
+  }
+  .payment-templates {
+    padding: 20px 8px 4px;
+    border-left: solid 1px #dae7ea;
+    .template-item {
+      position: relative;
+      display: inline-block;
+      width: calc(50% - 16px);
+      height: 80px;
+      margin: 0 8px 16px;
+      padding: 16px;
+      border: solid 1px #dae7ea;
+      border-radius: 2px;
+      background-color: $general-bg;
+      &:hover,
+      &.selected {
+        background: linear-gradient(0, #43adc7 0%, #51c3e5 100%);
+        .template-name,
+        .template-currency,
+        .template-ammount {
+          color: #fff;
+        }
+        .template-info {
+          display: block;
+          color: #fff;
+        }
+      }
+      .template-name {
+        font-size: 18px;
+        color: $general-active-element;
+      }
+      .template-currency {
+        margin-right: 5px;
+        font-size: 12px;
+      }
+      .template-ammount {
+        font: 16px UnicreditCYMedium;
+        color: $general-text;
+      }
+      .template-info {
+        display: none;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+      }
+    }
+  }
+  footer {
+    clear: both;
+    height: 80px;
+    border-top: solid 1px #dae7ea;
+  }
+}

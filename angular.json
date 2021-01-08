@@ -97,7 +97,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/@mdi/font/css/materialdesignicons.min.css",
+              "./node_modules/@mdi/font/css/materialdesignicons.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -129,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "industria-task"
 }

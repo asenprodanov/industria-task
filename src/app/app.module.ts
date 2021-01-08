@@ -10,13 +10,17 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TransactionsModule } from './modules/accounts/modules/transactions/transactions.module';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaymentsModule } from './modules/payment/payments.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PaymentsComponent } from './modules/payment/components/payments/payments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,10 @@ import { HomeComponent } from './home/home.component';
       InMemoryAccountsDataService, { dataEncapsulation: false }
     ),
     TransactionsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    PaymentsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

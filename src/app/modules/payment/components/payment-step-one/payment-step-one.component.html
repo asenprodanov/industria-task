@@ -1,0 +1,36 @@
+<div class="payment-step-1-container clearfix">
+  <div class="payment-step-1-form">
+    <header>
+      <h3>Ново нареждане</h3>
+      <p class="payment-step-1-info">Изпратете нов превод от начало, като попълните формата</p>
+    </header>
+    <!-- TODO <form>
+    </form> -->
+  </div>
+  <span class="strange-text">или</span>
+  <div class="payment-step-1-template">
+    <header>
+      <h3>Шаблон</h3>
+      <p class="payment-step-1-info">Направете нов превод като изберете някой от готовите шаблони</p>
+    </header>
+    <div class="payment-templates">
+      <div
+        *ngFor="let template of templates"
+        (click)="selectTemplate(template)"
+        [class.selected]="selectedTemplate === template"
+        class="template-item">
+        <span class="template-name">{{ template.templateName }}</span>
+        <div>
+          <span class="template-currency">{{ template.templateCurrency }}</span>
+          <span class="template-ammount">{{ template.templateAmount }}</span>
+        </div>
+        <span class="template-info"><i class="mdi mdi-alert-circle"></i></span>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <button
+      (click)="nextStep()"
+      class="button">Напред</button>
+  </footer>
+</div>

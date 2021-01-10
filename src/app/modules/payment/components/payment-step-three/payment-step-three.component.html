@@ -9,7 +9,7 @@
           <span>От сметка</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.iban }}</span>
+          <!-- TODO <span>{{ transactionData.iban }}</span> -->
         </div>
         <div class="payment-step-review">
           <span>{{ transactionData.accountName }}</span>
@@ -29,7 +29,7 @@
           <span>Получател</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.receiverName }}</span>
+          <span>{{ transactionData.recepientIban }}</span>
         </div>
       </div>
       <div class="payment-step-review-row">
@@ -37,7 +37,7 @@
           <span>Име на получателя</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.receiverName }}</span>
+          <span>{{ transactionData.recepientName }}</span>
         </div>
       </div>
       <div class="payment-step-review-row">
@@ -45,7 +45,7 @@
           <span>Основание</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.additionalDescription }}</span>
+          <span>{{ transactionData.transactionDescription }}</span>
         </div>
       </div>
       <div class="payment-step-review-row">
@@ -53,7 +53,7 @@
           <span>Дата на изпълнение</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.receiverName }}</span>
+          <span>{{ transactionData.transactionDate | date: 'dd MMM yyyy' : 'bg-BG' }}</span>
         </div>
       </div>
       <div class="payment-step-review-row">
@@ -61,7 +61,7 @@
           <span>Валидно преди</span>
         </div>
         <div class="payment-step-review">
-          <span>{{ transactionData.receiverName }}</span>
+          <span>{{ transactionData.transactionValidBefore | date: 'dd MMM yyyy' : 'bg-BG' }}</span>
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Сметка</mat-label>
-          <mat-select (valueChange)="onSelectChange($event)" formControlName="accountName">
-            <mat-option *ngFor="let account of accountsData;" [value]="account"> {{ account.accountName }}</mat-option>
+          <mat-select (valueChange)="onSelectChange($event)" formControlName="accountId">
+            <mat-option *ngFor="let account of accountsData;" [value]="account.accountId"> {{ account.accountName }}</mat-option>
           </mat-select>
           <mat-error *ngIf="paymentForm1.get('accountName')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
@@ -17,7 +17,10 @@
       <p class="clearfix">
         <mat-form-field appearance="outline" class="mat-form-field-30">
           <mat-label>Валута</mat-label>
-          <input matInput placeholder="Валута" formControlName="currency">
+          <mat-select formControlName="currency">
+            <mat-option *ngFor="let currency of currencies;" [value]="currency"> {{ currency }}</mat-option>
+          </mat-select>
+          <!-- <input matInput placeholder="Валута" formControlName="currency"> -->
           <mat-error *ngIf="paymentForm1.get('currency')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="mat-form-field-right mat-form-field-60">
@@ -29,16 +32,16 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Получател</mat-label>
-          <input matInput placeholder="IBAN на получател" formControlName="iban">
-          <mat-error *ngIf="paymentForm1.get('iban')?.hasError('required')">Задължително поле</mat-error>
-          <mat-error *ngIf="paymentForm1.get('iban')?.hasError('pattern')">Грешен IBAN формат</mat-error>
+          <input matInput placeholder="IBAN на получател" formControlName="recepientIban">
+          <mat-error *ngIf="paymentForm1.get('recepientIban')?.hasError('required')">Задължително поле</mat-error>
+          <mat-error *ngIf="paymentForm1.get('recepientIban')?.hasError('pattern')">Грешен IBAN формат</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Име на получателя</mat-label>
-          <input matInput placeholder="Име на получателя" formControlName="receiverName">
-          <mat-error *ngIf="paymentForm1.get('receiverName')?.hasError('required')">Задължително поле</mat-error>
+          <input matInput placeholder="Име на получателя" formControlName="recepientName">
+          <mat-error *ngIf="paymentForm1.get('recepientName')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
       </p>
       <!-- <button type="submit" class="btn next-btn">Напред</button> -->

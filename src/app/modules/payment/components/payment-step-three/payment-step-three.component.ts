@@ -14,7 +14,6 @@ export class PaymentStepThreeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.warn('transactionData', this.transactionData);
   }
 
 }

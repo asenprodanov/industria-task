@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Account } from 'src/app/modules/accounts/account';
 import { AccountsService } from 'src/app/modules/accounts/accounts.service';
@@ -29,15 +30,24 @@ export class PaymentStepOneComponent implements OnInit {
     { tempalteId:  5, templateName: 'Плащане 5', templateAmount: 1100, templateCurrency: 'BGN', templateInfo: 'Информация 5' },
     { tempalteId:  6, templateName: 'Плащане 6', templateAmount: 1000, templateCurrency: 'BGN', templateInfo: 'Информация 6' }
   ];
+  public currencies: string[] = ['bgn', 'usd', 'eur'];
   public selectedTemplate: Template;
   public paymentForm1: FormGroup;
   public accountsData: Account[];
   private bgnIbanPattern: RegExp = new RegExp(/^BG\d{2}[A-Z]{4}\d{6}[0-9A-Z]{8}$/);
 
-  constructor(private formBuilder: FormBuilder, private accountsService: AccountsService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private accountsService: AccountsService,
+    @Inject(MAT_DIALOG_DATA) public data: { accountId: number }
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
+    // Setting the id of the account if we are opening the dialog from accounts
+    if (this.data?.accountId) {
+      this.paymentForm1.get('accountId').setValue(this.data.accountId);
+    }
     this.accountsService.getAccounts().subscribe(
       (data: Account[]) => this.accountsData = data
     );
@@ -47,13 +57,13 @@ export class PaymentStepOneComponent implements OnInit {
     this.paymentForm1 = this.formBuilder.group({
       accountId: [this.transactionData?.accountId ? this.transactionData?.accountId : null],
       accountName: [this.transactionData?.accountName ? this.transactionData?.accountName : null, Validators.required],
-      receiverName: [this.transactionData?.receiverName ? this.transactionData?.receiverName : null, Validators.required],
       currency: [this.transactionData?.currency ? this.transactionData?.currency : null, Validators.required],
       ammount: [this.transactionData?.ammount ? this.transactionData?.ammount : null, Validators.required],
-      iban: [
-        this.transactionData?.iban ? this.transactionData?.iban : null,
+      recepientIban: [
+        this.transactionData?.recepientIban ? this.transactionData?.recepientIban : null,
         { validators: [Validators.required, Validators.pattern(this.bgnIbanPattern)] }
-      ]
+      ],
+      recepientName: [this.transactionData?.recepientName ? this.transactionData?.recepientName : null, Validators.required]
     });
   }
 
@@ -61,10 +71,9 @@ export class PaymentStepOneComponent implements OnInit {
     this.selectedTemplate = template;
   }
 
-  public onSelectChange(account: Account): void {
-    this.paymentForm1.get('accountId').setValue(account.accountId);
+  public onSelectChange(id: number): void {
+    const account: Account = this.accountsData.find(acct => acct.accountId === id);
     this.paymentForm1.get('accountName').setValue(account.accountName);
-    this.paymentForm1.get('currency').setValue(account.accountCurrency);
   }
 
 }

@@ -4,19 +4,19 @@
   class="transaction-row">
   <div class="transaction-row-inner clearfix">
     <div class="transaction-field transaction-date">
-      <span>{{ transaction.date }}</span>
+      <span>{{ transaction.transactionDate | date: 'dd MMM' : 'bg-BG' }}</span>
     </div>
     <div class="transaction-field transaction-time">
-      <span>{{ transaction.time }}</span>
+      <span>{{ transaction.transactionDate | date: 'hh:mm' : 'bg-BG'}}</span>
     </div>
     <div class="transaction-field transaction-account-name">
       <span>{{ transaction.accountName }}</span>
     </div>
     <div class="transaction-field transaction-receiver-name">
-      <span>{{ transaction.receiverName }}</span>
+      <span>{{ transaction.recepientName }}</span>
     </div>
     <div class="transaction-field transaction-payment-description">
-      <span>{{ transaction.paymentDescription }}</span>
+      <span>{{ transaction.transactionDescription }}</span>
     </div>
     <div class="transaction-field transaction-currency">
       <span>{{ transaction.currency }}</span>
@@ -35,7 +35,7 @@
         <span>IBAN</span>
       </div>
       <div class="transaction-field-right">
-        <span>{{ transaction.iban }}</span>
+        <span>{{ transaction.recepientIban }}</span>
       </div>
     </div>
     <div class="transaction-additional-info-row clearfix">
@@ -43,7 +43,7 @@
         <span>Дата и час на осчетоводяване</span>
       </div>
       <div class="transaction-field-right">
-        <span>{{ transaction.dateAndTime }}</span>
+        <span>{{ transaction.transactionValidBefore | date: 'dd MMM yyyy, hh:mm ' : 'bg-BG' }}</span>
       </div>
     </div>
     <div class="transaction-additional-info-row clearfix">
@@ -51,7 +51,7 @@
         <span>Още пояснения</span>
       </div>
       <div class="transaction-field-right">
-        <span>{{ transaction.additionalDescription }}</span>
+        <span>{{ transaction.transactionDescription }}</span>
       </div>
     </div>
   </div>

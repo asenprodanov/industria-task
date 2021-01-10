@@ -1,14 +1,14 @@
 export interface Transaction {
-  date: Date;
-  time: Date;
+  transactionId: number;
   accountName: string;
-  receiverName: string;
-  paymentDescription: string;
-  transactionStatus: string;
+  accountIban: string;
+  recepientIban: string;
+  recepientName: string;
+  transactionDescription: string;
+  transactionStatus: 'pending' | 'inflow' | 'outflow';
   currency: string;
   ammount: number;
-  dateAndTime: Date;
-  iban: string;
-  additionalDescription: string;
+  transactionDate: Date;
+  transactionValidBefore: Date;
   accountId: number;
 }

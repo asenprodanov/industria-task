@@ -21,9 +21,13 @@ export class PaymentStepTwoComponent implements OnInit {
 
   private initForm(): void {
     this.paymentForm2 = this.formBuilder.group({
-      paymentDescription: [this.transactionData?.paymentDescription ? this.transactionData?.paymentDescription : null, Validators.required],
-      date: [this.transactionData?.date ? this.transactionData?.date : null, Validators.required],
-      time: [this.transactionData?.time ? this.transactionData?.time : null, Validators.required]
+      transactionDescription: [
+        this.transactionData?.transactionDescription ? this.transactionData?.transactionDescription : null, Validators.required
+      ],
+      transactionDate: [this.transactionData?.transactionDate ? this.transactionData?.transactionDate : null, Validators.required],
+      transactionValidBefore: [
+        this.transactionData?.transactionValidBefore ? this.transactionData?.transactionValidBefore : null, Validators.required
+      ]
     });
   }
 

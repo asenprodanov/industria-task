@@ -11,7 +11,7 @@
       <span class="account-currency">{{ account.accountCurrency }} {{ account.balance }}</span>
     </div>
     <div class="account-info-bottom">
-      <i class="mdi mdi-wallet"></i>
+      <i class="mdi mdi-wallet" (click)="openPayment(account.accountId);"></i>
       <div [ngClass]="{ 'no-card': !account.accountCards }" class="account-cards">
         <span class="account-card-number">{{ account.accountCards }}</span>
         <i class="mdi mdi-credit-card-outline"></i>

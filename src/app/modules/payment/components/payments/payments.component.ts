@@ -33,7 +33,7 @@ export class PaymentsComponent implements OnInit {
     this.currentStep$ = this.paymentsService.getCurrentStep();
   }
 
-  // Triggering child forms validation and moving to next step if valid
+  // Triggering child forms validation and moving to next step if valid and closing the dialog
   public nextStep(currentStep: number): void {
     // TODO the code doesn't look that good
     if (currentStep === 1) {

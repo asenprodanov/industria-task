@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import '@angular/common/locales/global/bg';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryAccountsDataService } from './in-memory-accounts-data.service';
@@ -36,7 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   entryComponents: [
     LeftMenuComponent
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'bg' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

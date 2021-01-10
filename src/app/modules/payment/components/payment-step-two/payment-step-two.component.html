@@ -7,17 +7,24 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Основание</mat-label>
-          <input matInput placeholder="Основание" formControlName="paymentDescription">
+          <input matInput placeholder="Основание" formControlName="transactionDescription">
+          <mat-error *ngIf="paymentForm2.get('transactionDescription')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
       </p>
       <p>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="mat-form-field-50">
           <mat-label>Дата на изпълнение</mat-label>
-          <input matInput placeholder="Дата на изпълнение" formControlName="date">
+          <input matInput [matDatepicker]="picker1" formControlName="transactionDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+          <mat-error *ngIf="paymentForm2.get('transactionDate')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="mat-form-field-50">
           <mat-label>Валидно преди</mat-label>
-          <input matInput placeholder="Валидно преди" formControlName="time">
+          <input matInput [matDatepicker]="picker2" formControlName="transactionValidBefore">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error *ngIf="paymentForm2.get('transactionValidBefore')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
       </p>
     </form>

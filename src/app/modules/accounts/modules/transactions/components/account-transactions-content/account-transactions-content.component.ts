@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Transaction } from '../../transaction';
@@ -24,7 +24,11 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
   private additionalInfoSubscription: Subscription;
   private infoSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private transactionService: TransactionsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private transactionService: TransactionsService,
+    private ref: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
@@ -39,16 +43,11 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
   }
 
   ngAfterViewInit(): void {
-    // Waiting for transaction components to be loaded so we can toggle them
-    this.additionalInfoSubscription = this.additionalInfo.changes.subscribe(() => {
-      if (this.additionalInfo.toArray().length) {
-        this.additionalInfo.toArray().forEach((info: AccountTransactionComponent) => {
-          this.infoSubscription = info.toggle
-            .subscribe(() => {
-              this.showAdditionalInfo(info);
-            });
-        });
-      }
+    this.ref.detectChanges();
+    this.additionalInfoTooggle();
+    this.additionalInfoSubscription = this.additionalInfo.changes
+      .subscribe(() => {
+        this.additionalInfoTooggle();
     });
   }
 
@@ -58,6 +57,17 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
     }
     if (this.infoSubscription) {
       this.infoSubscription.unsubscribe();
+    }
+  }
+
+  private additionalInfoTooggle(): void {
+    if (this.additionalInfo.toArray().length) {
+      this.additionalInfo.toArray().forEach((info: AccountTransactionComponent) => {
+        this.infoSubscription = info.toggle
+          .subscribe(() => {
+            this.showAdditionalInfo(info);
+          });
+      });
     }
   }
 

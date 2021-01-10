@@ -54,6 +54,26 @@ input {
 .mat-dialog-container {
   padding: 0 !important;
 }
+.mat-h1,
+.mat-headline,
+.mat-typography h1 {
+  margin: 0;
+}
+.mat-h2,
+.mat-title,
+.mat-typography h2 {
+  margin: 0;
+}
+.mat-h3,
+.mat-subheading-2,
+.mat-typography h3 {
+  margin: 0;
+}
+.mat-h4,
+.mat-subheading-1,
+.mat-typography h4 {
+  margin: 0;
+}
 .payment-steps-container {
   form {
     padding: 16px;

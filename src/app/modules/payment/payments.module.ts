@@ -7,6 +7,10 @@ import { PaymentStepOneComponent } from './components/payment-step-one/payment-s
 import { PaymentStepTwoComponent } from './components/payment-step-two/payment-step-two.component';
 import { PaymentStepThreeComponent } from './components/payment-step-three/payment-step-three.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     PaymentsComponent,
@@ -16,7 +20,10 @@ import { PaymentStepThreeComponent } from './components/payment-step-three/payme
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class PaymentsModule { }

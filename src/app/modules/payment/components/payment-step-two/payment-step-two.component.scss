@@ -1,0 +1,19 @@
+@import "main";
+
+.payment-step-2-container {
+  width: 600px;
+  position: relative;
+  .payment-step-2-form {
+    width: 100%;
+    header {
+      height: 80px;
+      padding-top: 24px;
+      text-align: center;
+      background-color: $general-bg;
+      h3 {
+        font-size: 20px;
+        color: $labels;
+      }
+    }
+  }
+}

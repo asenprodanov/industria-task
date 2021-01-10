@@ -8,7 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-left-menu',
   templateUrl: './left-menu.component.html',
-  styleUrls: ['./left-menu.component.scss']
+  styleUrls: ['./left-menu.component.scss'],
+  providers: []
 })
 export class LeftMenuComponent implements OnInit {
 

@@ -1,3 +1,6 @@
+@import "node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss";
+@import "~@mdi/font/css/materialdesignicons.min.css";
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
@@ -29,10 +32,6 @@ $industria-task-theme: mat-light-theme(
 // that you are using.
 @include angular-material-theme($industria-task-theme);
 
-@import "node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss";
-@import "~@mdi/font/css/materialdesignicons.min.css";
-@import "~@angular/material/theming";
-
 $custom-typography: mat-typography-config(
   $font-family: '"UnicreditCYRegular", sans-serif;',
 );
@@ -40,13 +39,48 @@ $custom-typography: mat-typography-config(
 
 * {
   font: 400 16px/20px "UnicreditCYRegular", "arial", sans-serif;
+  outline: none;
 }
 html,
 body {
   height: 100%;
 }
+input {
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
 .mat-dialog-container {
   padding: 0 !important;
+}
+.payment-steps-container {
+  form {
+    padding: 16px;
+    p {
+      margin-bottom: 0;
+      font-size: 11px;
+      .mat-form-field {
+        width: 100%;
+        &.mat-form-field-30 {
+          width: 30%;
+        }
+        &.mat-form-field-60 {
+          width: 60%;
+        }
+        &.mat-form-field-right {
+          float: right;
+        }
+        mat-label {
+          line-height: 14px;
+        }
+        mat-error {
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+    }
+  }
 }
 .clearfix {
   &:after {

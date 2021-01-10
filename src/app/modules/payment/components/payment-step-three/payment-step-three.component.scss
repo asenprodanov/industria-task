@@ -1,0 +1,33 @@
+@import "main";
+
+.payment-step-3-container {
+  width: 600px;
+  position: relative;
+  header {
+    height: 80px;
+    padding-top: 24px;
+    text-align: center;
+    background-color: $general-bg;
+    h3 {
+      font-size: 20px;
+      color: $labels;
+    }
+  }
+  .payment-step-review-content {
+    padding: 8px 16px;
+    .payment-step-review-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      .payment-step-review {
+        color: $general-text;
+        &.payment-step-review-left {
+          color: $labels;
+          .payment-step-review-currency {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentsModule } from './modules/payment/payments.module';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PaymentsComponent } from './modules/payment/components/payments/payments.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +32,9 @@ import { PaymentsComponent } from './modules/payment/components/payments/payment
     BrowserAnimationsModule,
     PaymentsModule,
     MatDialogModule
+  ],
+  entryComponents: [
+    LeftMenuComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

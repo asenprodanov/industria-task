@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Transaction } from '../../transaction';
 import { TransactionsService } from '../../transactions.service';
 import { AccountTransactionComponent } from '../account-transaction/account-transaction.component';
 
 import { Observable, Subscription } from 'rxjs';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-account-transactions-content',
@@ -29,7 +30,10 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
     this.route.paramMap.subscribe(
       (params: ParamMap) => {
          this.accountId = +params.get('accountId');
-         this.transactionsData$ = this.transactionService.getTransactionsById(this.accountId);
+         this.transactionsData$ = this.transactionService.transactionsData$
+          .pipe(
+            map((transactions: Transaction[]) => transactions.filter(t => t.accountId === this.accountId))
+          );
       }
     );
   }
@@ -39,9 +43,10 @@ export class AccountTransactionsContentComponent implements OnInit, AfterViewIni
     this.additionalInfoSubscription = this.additionalInfo.changes.subscribe(() => {
       if (this.additionalInfo.toArray().length) {
         this.additionalInfo.toArray().forEach((info: AccountTransactionComponent) => {
-          this.infoSubscription = info.toggle.subscribe(() => {
-            this.showAdditionalInfo(info);
-          });
+          this.infoSubscription = info.toggle
+            .subscribe(() => {
+              this.showAdditionalInfo(info);
+            });
         });
       }
     });

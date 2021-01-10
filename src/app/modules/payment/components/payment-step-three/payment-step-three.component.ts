@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Transaction } from '../../../accounts/modules/transactions/transaction';
 
 @Component({
   selector: 'app-payment-step-three',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentStepThreeComponent implements OnInit {
 
+  @Input() transactionData: Transaction;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.warn('transactionData', this.transactionData);
   }
 
 }

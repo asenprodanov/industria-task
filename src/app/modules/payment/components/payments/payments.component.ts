@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PaymentsService } from '../../payments.service';
 import { LeftMenuComponent } from 'src/app/left-menu/left-menu.component';
+import { PaymentStepOneComponent } from '../payment-step-one/payment-step-one.component';
+import { PaymentStepTwoComponent } from '../payment-step-two/payment-step-two.component';
 import { Transaction } from '../../../accounts/modules/transactions/transaction';
 
 import { Observable } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
-import { TransactionsService } from 'src/app/modules/accounts/modules/transactions/transactions.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-payments',
@@ -15,30 +17,15 @@ import { TransactionsService } from 'src/app/modules/accounts/modules/transactio
 })
 export class PaymentsComponent implements OnInit {
 
+  @ViewChild(PaymentStepOneComponent) stepOneComponent: PaymentStepOneComponent;
+  @ViewChild(PaymentStepTwoComponent) stepTwoComponent: PaymentStepTwoComponent;
   public title = 'Направете превод';
   public steps: number;
   public stepsArray: number[];
   public currentStep$: Observable<number>;
-  // public transactionData: Transaction = {
-  //   date: new Date(),
-  //   time: new Date(),
-  //   accountName: 'Разплащателна сметка 2',
-  //   receiverName: 'Иван Иванов',
-  //   paymentDescription: 'Такса вода',
-  //   transactionStatus: 'outflow',
-  //   currency: 'BGN',
-  //   ammount: 231,
-  //   dateAndTime: new Date(),
-  //   iban: 'BG08UNCR70078929122111',
-  //   additionalDescription: 'Пояснения към нов превод',
-  //   accountId: 2
-  // };
+  public transactionData: Transaction;
 
-  constructor(
-    public paymentsService: PaymentsService,
-    public transactionService: TransactionsService,
-    public dialogRef: MatDialogRef<LeftMenuComponent>
-  ) { }
+  constructor(public paymentsService: PaymentsService, public dialogRef: MatDialogRef<LeftMenuComponent>) { }
 
   ngOnInit(): void {
     this.steps = this.paymentsService.STEPS;
@@ -46,14 +33,32 @@ export class PaymentsComponent implements OnInit {
     this.currentStep$ = this.paymentsService.getCurrentStep();
   }
 
-  nextStep(): void {
-    const currentStep = this.paymentsService.currentStep.value;
-    if (currentStep === this.paymentsService.STEPS) {
+  // Triggering child forms validation and moving to next step if valid
+  public nextStep(currentStep: number): void {
+    // TODO the code doesn't look that good
+    if (currentStep === 1) {
+      this.stepOneComponent.paymentForm1.markAllAsTouched();
+      if (this.stepOneComponent.paymentForm1.valid) {
+        this.addDataAndMove(this.stepOneComponent.paymentForm1);
+      }
+    } else if (currentStep === 2) {
+      this.stepTwoComponent.paymentForm2.markAllAsTouched();
+      if (this.stepTwoComponent.paymentForm2.valid) {
+        this.addDataAndMove(this.stepTwoComponent.paymentForm2);
+      }
+    } else if (currentStep === 3) {
+      this.paymentsService.nextStep(this.transactionData);
       this.dialogRef.close();
-      // this.transactionService.createTransaction(this.transactionData);
-      return;
     }
-    this.paymentsService.setCurrentStep(currentStep + 1);
+  }
+
+  public prevStep(): void {
+    this.paymentsService.prevStep();
+  }
+
+  private addDataAndMove(form: FormGroup): void {
+    this.transactionData = { ...this.transactionData, ...form.value };
+    this.paymentsService.nextStep(this.transactionData);
   }
 
 }

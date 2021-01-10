@@ -1,6 +1,6 @@
 @import "main";
 
-.payment-step-container {
+.payment-steps-container {
   font: 400 16px/20px "PTSansWebRegular", "UnicreditCYRegular", sans-serif;
   header {
     text-align: center;
@@ -67,11 +67,11 @@
   footer {
     clear: both;
     height: 80px;
-    padding-top: 22px;
+    padding: 22px 16px 0;
     text-align: center;
     border-top: solid 1px #dae7ea;
-    .btn {
-      clear: both; // TODO remove
+    &.left {
+      text-align: right;
     }
   }
 }

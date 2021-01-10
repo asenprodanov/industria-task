@@ -15,4 +15,9 @@
   border: none;
   border-radius: 3px;
   background-color: $general-active-element;
+  &.alt {
+    margin-right: 16px;
+    color: $general-active-element;
+    background-color: #f2f2f2;
+  }
 }

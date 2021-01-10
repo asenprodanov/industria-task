@@ -1,1 +1,25 @@
-<p>payment-step-two works!</p>
+<div class="payment-step-container payment-step-2-container">
+  <div class="payment-step-2-form">
+    <header>
+      <h3>Детайли</h3>
+    </header>
+    <form [formGroup]="paymentForm2">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Основание</mat-label>
+          <input matInput placeholder="Основание" formControlName="paymentDescription">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Дата на изпълнение</mat-label>
+          <input matInput placeholder="Дата на изпълнение" formControlName="date">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Валидно преди</mat-label>
+          <input matInput placeholder="Валидно преди" formControlName="time">
+        </mat-form-field>
+      </p>
+    </form>
+  </div>
+</div>

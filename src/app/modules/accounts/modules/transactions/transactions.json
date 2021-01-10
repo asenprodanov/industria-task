@@ -1,11 +1,12 @@
 [
   {
+    "transactionId": 1,
     "date": "12 окт",
     "time": "10:22",
     "accountName": "Разплащателна сметка 1",
     "receiverName": "Петър Петров",
     "paymentDescription": "Месечна такса телефон",
-    "transactionStatus": "pending",
+    "transactionStatus": "outflow",
     "currency": "BGN",
     "ammount": 231,
     "dateAndTime": "29 сеп 2016, 12:22",
@@ -14,12 +15,13 @@
     "accountId": 1
   },
   {
+    "transactionId": 2,
     "date": "12 сеп",
     "time": "16:22",
     "accountName": "Разплащателна сметка 1",
     "receiverName": "Виваком",
     "paymentDescription": "Захранване на сметка",
-    "transactionStatus": "outflow",
+    "transactionStatus": "pending",
     "currency": "BGN",
     "ammount": 21,
     "dateAndTime": "21 сеп 2026, 16:22",
@@ -28,6 +30,7 @@
     "accountId": 1
   },
   {
+    "transactionId": 3,
     "date": "2 май",
     "time": "11:12",
     "accountName": "Разплащателна сметка 1",
@@ -42,6 +45,7 @@
     "accountId": 1
   },
   {
+    "transactionId": 4,
     "date": "12 окт",
     "time": "10:22",
     "accountName": "Разплащателна сметка 2",
@@ -56,6 +60,7 @@
     "accountId": 2
   },
   {
+    "transactionId": 5,
     "date": "12 сеп",
     "time": "16:22",
     "accountName": "Разплащателна сметка 2",
@@ -70,6 +75,7 @@
     "accountId": 2
   },
   {
+    "transactionId": 6,
     "date": "22 сеп",
     "time": "16:22",
     "accountName": "Разплащателна сметка 2",
@@ -84,6 +90,7 @@
     "accountId": 2
   },
   {
+    "transactionId": 7,
     "date": "2 май",
     "time": "11:12",
     "accountName": "Разплащателна сметка 2",

@@ -1,4 +1,4 @@
-<div *ngIf="currentStep$ | async as currentStep" class="payment-step-container">
+<div *ngIf="currentStep$ | async as currentStep" class="payment-steps-container">
   <header>
     <h2>{{ title }}</h2>
     <div class="steps clearfix">
@@ -15,13 +15,15 @@
     <!-- TODO close dialog -->
   </header>
   <div class="form-steps">
-    <app-payment-step-one *ngIf="currentStep === 1"></app-payment-step-one>
-    <app-payment-step-two *ngIf="currentStep === 2"></app-payment-step-two>
-    <app-payment-step-three *ngIf="currentStep === 3"></app-payment-step-three>
+    <app-payment-step-one *ngIf="currentStep === 1" [transactionData]="transactionData"></app-payment-step-one>
+    <app-payment-step-two *ngIf="currentStep === 2" [transactionData]="transactionData"></app-payment-step-two>
+    <app-payment-step-three *ngIf="currentStep === 3" [transactionData]="transactionData"></app-payment-step-three>
   </div>
-  <footer>
+  <footer [class.left]="currentStep > 1">
     <button
-      (click)="nextStep()"
-      class="btn">Напред</button>
+      *ngIf="currentStep > 1"
+      (click)="prevStep()"
+      class="btn alt">Назад</button>
+    <button (click)="nextStep(currentStep)" class="btn">{{ currentStep === 3 ? "Изпрати" : "Напред"}}</button>
   </footer>
 </div>

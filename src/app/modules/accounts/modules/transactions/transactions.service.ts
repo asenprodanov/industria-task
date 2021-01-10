@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Transaction } from './transaction';
 
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,11 +12,22 @@ import { catchError, map } from 'rxjs/operators';
 export class TransactionsService {
 
   private transactionsUrl = 'api/transactions';
+  private transactionsData = new BehaviorSubject<Transaction[]>([]);
+  public transactionsData$: Observable<Transaction[]> = this.transactionsData.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  getTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.transactionsUrl);
+  getTransactions() {
+    this.http.get<Transaction[]>(this.transactionsUrl)
+      .pipe(
+        catchError(error => {
+          console.log('Throwing error!');
+          return throwError(error);
+        })
+      )
+      .subscribe(
+        (transactions: Transaction[]) => this.transactionsData.next(transactions)
+      );
   }
 
   /**
@@ -26,8 +37,8 @@ export class TransactionsService {
    * @public
    * @param { number } id - Account id
    */
-  getTransactionsById(id: number): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.transactionsUrl)
+  getTransactionsById(id: number): void {
+    this.http.get<Transaction[]>(this.transactionsUrl)
       .pipe(
         map((transactions: Transaction[]) => transactions.filter(t => t.accountId === id)),
         catchError(error => {
@@ -37,7 +48,9 @@ export class TransactionsService {
       );
   }
 
-  // createTransaction(data: Transaction): void {
-  // }
+  createTransaction(data: Transaction): void {
+    const transactions = this.transactionsData.getValue();
+    this.transactionsData.next([...transactions, data]);
+  }
 
 }

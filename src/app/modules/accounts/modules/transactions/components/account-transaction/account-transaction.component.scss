@@ -50,6 +50,9 @@
       padding: 0;
     }
   }
+  &.transaction-currency {
+    text-transform: uppercase;
+  }
   & > span {
     padding: 0 5px;
   }

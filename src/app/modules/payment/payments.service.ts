@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+
+import { TransactionsService } from '../accounts/modules/transactions/transactions.service';
+import { Transaction } from '../accounts/modules/transactions/transaction';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -6,26 +10,36 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class PaymentsService {
 
-  constructor() { }
+  constructor(public transactionService: TransactionsService) { }
 
   public initialStep = 1;
   public STEPS = 3;
   public currentStep: BehaviorSubject<number> = new BehaviorSubject(this.initialStep);
   public currentStep$: Observable<number> = this.currentStep.asObservable();
 
-  setCurrentStep(step: number): void {
+  public setCurrentStep(step: number): void {
     this.currentStep.next(step);
   }
 
-  getCurrentStep(): Observable<number> {
+  public getCurrentStep(): Observable<number> {
     return this.currentStep$;
   }
 
-  nextStep() {
-    const index = this.currentStep.value;
-    if (index < this.STEPS) {
-      this.currentStep.next(index);
+  public nextStep(data: Transaction): void {
+    const currentStep = this.currentStep.getValue();
+    if (currentStep === this.STEPS) {
+      this.transactionService.createTransaction(data);
+      return;
     }
+    this.setCurrentStep(currentStep + 1);
+  }
+
+  public prevStep(): void {
+    const currentStep = this.currentStep.getValue();
+    if (currentStep <= 1) {
+      return;
+    }
+    this.setCurrentStep(currentStep - 1);
   }
 
 }

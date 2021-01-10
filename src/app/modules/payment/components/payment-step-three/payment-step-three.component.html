@@ -1,1 +1,69 @@
-<p>payment-step-three works!</p>
+<div class="payment-step-container payment-step-3-container">
+  <div class="payment-step-review-containers">
+    <header>
+      <h3>Преглед</h3>
+    </header>
+    <div class="payment-step-review-content">
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>От сметка</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.iban }}</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.accountName }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Сума</span>
+        </div>
+        <div class="payment-step-review">
+          <span class="payment-step-review-currency">{{ transactionData.currency }}</span>
+          <span>{{ transactionData.ammount }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Получател</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.receiverName }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Име на получателя</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.receiverName }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Основание</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.additionalDescription }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Дата на изпълнение</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.receiverName }}</span>
+        </div>
+      </div>
+      <div class="payment-step-review-row">
+        <div class="payment-step-review payment-step-review-left">
+          <span>Валидно преди</span>
+        </div>
+        <div class="payment-step-review">
+          <span>{{ transactionData.receiverName }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

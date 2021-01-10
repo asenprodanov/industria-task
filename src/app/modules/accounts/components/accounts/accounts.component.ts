@@ -13,10 +13,10 @@ export class AccountsComponent implements OnInit {
   public title = 'Сметки';
   public accountsData$: Observable<Account[]>;
 
-  constructor(private accounts: AccountsService) { }
+  constructor(private accountsService: AccountsService) { }
 
   ngOnInit(): void {
-    this.accountsData$ = this.accounts.getAccounts();
+    this.accountsData$ = this.accountsService.getAccounts();
   }
 
 }

@@ -1,0 +1,35 @@
+@import "variables";
+@import "fonts";
+
+.btn {
+  display: inline-block;
+  height: 35px;
+  padding: 0 16px;
+  cursor: pointer;
+  outline: none;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  background-color: $general-active-element;
+  &.alt {
+    margin-right: 16px;
+    color: $general-active-element;
+    background-color: #f2f2f2;
+  }
+}
+.page-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 80px;
+  padding: 0 20px;
+  background-color: #7cc3d5;
+  h2 {
+    font-size: 32px;
+    color: #fff;
+  }
+}

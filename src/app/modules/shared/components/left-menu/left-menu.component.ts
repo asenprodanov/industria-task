@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PaymentsComponent } from '../modules/payment/components/payments/payments.component';
-import { PaymentsService } from '../modules/payment/payments.service';
+import { PaymentsComponent } from '../../../payment/components/payments/payments.component';
+import { PaymentsService } from '../../../payment/payments.service';
 
 import { MatDialog } from '@angular/material/dialog';
 

@@ -12,14 +12,14 @@
         </mat-form-field>
       </p>
       <p>
-        <mat-form-field appearance="outline" class="mat-form-field-50">
+        <mat-form-field appearance="outline" class="mat-form-field-48">
           <mat-label>Дата на изпълнение</mat-label>
           <input matInput [matDatepicker]="picker1" formControlName="transactionDate">
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
           <mat-error *ngIf="paymentForm2.get('transactionDate')?.hasError('required')">Задължително поле</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="mat-form-field-50">
+        <mat-form-field appearance="outline" class="mat-form-field-48 mat-form-field-right">
           <mat-label>Валидно преди</mat-label>
           <input matInput [matDatepicker]="picker2" formControlName="transactionValidBefore">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>

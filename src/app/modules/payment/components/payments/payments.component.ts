@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PaymentsService } from '../../payments.service';
-import { LeftMenuComponent } from 'src/app/left-menu/left-menu.component';
+import { LeftMenuComponent } from 'src/app/modules/shared/components/left-menu/left-menu.component';
 import { PaymentStepOneComponent } from '../payment-step-one/payment-step-one.component';
 import { PaymentStepTwoComponent } from '../payment-step-two/payment-step-two.component';
 import { Transaction } from '../../../accounts/modules/transactions/transaction';
@@ -47,6 +47,7 @@ export class PaymentsComponent implements OnInit {
         this.addDataAndMove(this.stepTwoComponent.paymentForm2);
       }
     } else if (currentStep === 3) {
+      this.transactionData = { ...this.transactionData, transactionStatus: 'pending' };
       this.paymentsService.nextStep(this.transactionData);
       this.dialogRef.close();
     }

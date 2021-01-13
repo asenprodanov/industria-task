@@ -2,19 +2,7 @@
 
 .accounts-content {
   overflow: hidden;
-}
-.accounts-header {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  height: 80px;
-  padding: 0 20px;
-  background-color: #7cc3d5;
-  h2 {
-    font-size: 32px;
-    color: #fff;
+  .accounts-list {
+    padding: 30px 20px 0;
   }
-}
-.accounts-list {
-  padding: 30px 20px 0;
 }

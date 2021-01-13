@@ -44,12 +44,17 @@ export class PaymentStepOneComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    // Setting the id of the account if we are opening the dialog from accounts
-    if (this.data?.accountId) {
-      this.paymentForm1.get('accountId').setValue(this.data.accountId);
-    }
-    this.accountsService.getAccounts().subscribe(
-      (data: Account[]) => this.accountsData = data
+    this.accountsService.getAccounts()
+      .subscribe(
+        (data: Account[]) => {
+          this.accountsData = data;
+          // Setting the id of the account if we are opening the dialog from accounts
+          if (this.data?.accountId) {
+            const account: Account = this.accountsData.find(acct => acct.accountId === this.data.accountId);
+            this.paymentForm1.get('accountId').setValue(this.data.accountId);
+            this.paymentForm1.get('accountName').setValue(account.accountName);
+          }
+        }
     );
   }
 

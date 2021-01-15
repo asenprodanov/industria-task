@@ -1,6 +1,6 @@
 # IndustriaTask
 
-For a preview go to (https://asenprodanov.github.io/industria-task/)
+For a preview go to https://asenprodanov.github.io/industria-task/
 
 ## For the version of the task with backend server
 
@@ -16,4 +16,4 @@ For a preview go to (https://asenprodanov.github.io/industria-task/)
 
 `npm run start`
 
-Go to `http://localhost:4200/`
+Navigate to `http://localhost:4200/`

@@ -9,7 +9,7 @@ import { Account } from './account';
 })
 export class AccountsService {
 
-  private accountsUrl = 'api/accounts';
+  private accountsUrl = 'http://localhost:3000/accounts';
 
   constructor(private http: HttpClient) { }
 

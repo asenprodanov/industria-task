@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 import { PaymentsService } from '../../payments.service';
 import { LeftMenuComponent } from 'src/app/modules/shared/components/left-menu/left-menu.component';
 import { PaymentStepOneComponent } from '../payment-step-one/payment-step-one.component';
 import { PaymentStepTwoComponent } from '../payment-step-two/payment-step-two.component';
 import { Transaction } from '../../../accounts/modules/transactions/transaction';
+import { TransactionsService } from 'src/app/modules/accounts/modules/transactions/transactions.service';
 
 import { Observable } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-payments',
@@ -25,7 +26,11 @@ export class PaymentsComponent implements OnInit {
   public currentStep$: Observable<number>;
   public transactionData: Transaction;
 
-  constructor(public paymentsService: PaymentsService, public dialogRef: MatDialogRef<LeftMenuComponent>) { }
+  constructor(
+    public paymentsService: PaymentsService,
+    private transactionService: TransactionsService,
+    public dialogRef: MatDialogRef<LeftMenuComponent>
+  ) { }
 
   ngOnInit(): void {
     this.steps = this.paymentsService.STEPS;
@@ -49,6 +54,7 @@ export class PaymentsComponent implements OnInit {
     } else if (currentStep === 3) {
       this.transactionData = { ...this.transactionData, transactionStatus: 'pending' };
       this.paymentsService.nextStep(this.transactionData);
+      this.transactionService.createTransaction(this.transactionData);
       this.dialogRef.close();
     }
   }

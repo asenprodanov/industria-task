@@ -11,13 +11,13 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class TransactionsService {
 
-  private transactionsUrl = 'api/transactions';
-  private transactionsData = new BehaviorSubject<Transaction[]>([]);
+  private transactionsUrl = 'http://localhost:3000/transactions';
+  public transactionsData = new BehaviorSubject<Transaction[]>([]);
   public transactionsData$: Observable<Transaction[]> = this.transactionsData.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  getTransactions() {
+  getTransactions(): void {
     this.http.get<Transaction[]>(this.transactionsUrl)
       .pipe(
         catchError(error => {
@@ -48,9 +48,15 @@ export class TransactionsService {
       );
   }
 
-  createTransaction(data: Transaction): void {
-    const transactions = this.transactionsData.getValue();
-    this.transactionsData.next([...transactions, data]);
+  createTransaction(data: Transaction) {
+    this.http.post<string>(this.transactionsUrl, data)
+      .pipe(
+        catchError(error => {
+          console.log('Throwing error!');
+          return throwError(error);
+        })
+      )
+      .subscribe(console.log);
   }
 
 }

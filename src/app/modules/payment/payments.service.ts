@@ -28,7 +28,7 @@ export class PaymentsService {
   public nextStep(data: Transaction): void {
     const currentStep = this.currentStep.getValue();
     if (currentStep === this.STEPS) {
-      this.transactionService.createTransaction(data);
+      this.nextPayment(data);
       return;
     }
     this.setCurrentStep(currentStep + 1);
@@ -40,6 +40,11 @@ export class PaymentsService {
       return;
     }
     this.setCurrentStep(currentStep - 1);
+  }
+
+  nextPayment(data: Transaction): void {
+    const transactions = this.transactionService.transactionsData.getValue();
+    this.transactionService.transactionsData.next([...transactions, data]);
   }
 
 }

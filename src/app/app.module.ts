@@ -21,9 +21,9 @@ import { SharedModule } from './modules/shared/shared.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryAccountsDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryAccountsDataService, { dataEncapsulation: false }
+    // ),
     CommonModule,
     SharedModule,
     TransactionsModule,

@@ -1,6 +1,6 @@
 # IndustriaTask
 
-For a preview go to `https://asenprodanov.github.io/industria-task/`
+For a preview go to (https://asenprodanov.github.io/industria-task/)
 
 ## For the version of the task with backend server
 
